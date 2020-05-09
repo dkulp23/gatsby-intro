@@ -7,6 +7,13 @@
     {
       "type": "chrome",
       "request": "launch",
+      "name": "Prod",
+      "url": "http://localhost:9000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:8000",
       "webRoot": "${workspaceFolder}"
