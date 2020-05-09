@@ -9,6 +9,17 @@ const usePosts = () => {
             title
             slug
             author
+            image {
+              sharp: childImageSharp {
+                fluid(
+                  maxWidth: 100
+                  maxHeight: 100
+                  duotone: { shadow: "#663399", highlight: "#ddbbff" }
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           excerpt
         }
@@ -16,8 +27,8 @@ const usePosts = () => {
     }
   `);
   return data.allMdx.nodes.map(node => {
-    const { frontmatter: { title, slug, author } = {}, excerpt } = node;
-    return { title, slug, author, excerpt };
+    const { frontmatter: { title, slug, author, image } = {}, excerpt } = node;
+    return { title, slug, author, excerpt, image };
   });
 };
 
